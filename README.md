@@ -2,13 +2,19 @@
 
 ## QuickStart
 
+Follow the steps below to instantiate a 3 VM infra with all the services running. The create scripts will prompt for passwords, which should all be the same ('redhat'). On the server, when it asks for the admin username+password, choose 'admin' + 'redhat'.
+
 1. vagrant up
 2. vagrant ssh bridge
   1. sudo su - 
   2. /vagrant/sigul_helpers/bridge_create.sh
+  3. service sigul_bridge start
+  4. tail -f /var/log/sigul_bridge.log
 3. vagrant ssh server
   1. sudo su - 
   2. /vagrant/sigul_helpers/server_create.sh
+  3. service sigul_server start
+  4. tail -f /var/log/sigul_server.log
 3. vagrant ssh client
   1. sudo su - 
   2. /vagrant/sigul_helpers/client_create.sh
