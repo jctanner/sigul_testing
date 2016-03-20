@@ -20,6 +20,8 @@ Follow the steps below to instantiate a 3 VM infra with all the services running
   2. /vagrant/sigul_helpers/client_create.sh
   3. sigul -v -v list-users
 
+If list-users prints out a line containing only the word 'admin', the infra has been setup correctly.
+
 ## References
 
 https://github.com/kostyrevaa/ansible-koji-infra
