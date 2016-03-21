@@ -1,7 +1,13 @@
 #!/bin/bash
 
+rpm -e --nodeps sigul
+rm -rf /etc/sigul
+rm -rf /var/lib/sigul
+yum -y install sigul
+
 client_dir=~/.sigul
 rm -rf $client_dir ; mkdir -p $client_dir
+ln -s /etc/sigul/client/conf $client_dir/sigul.conf
 
 bridge_host=bridge.example.org
 bridge_dir=~/bridge
@@ -27,5 +33,7 @@ sigul -v -v list-users
 
 # create the vagrant user 
 sigul new-user --admin --with-password vagrant
+sigul -v -v list-users
+
 
 

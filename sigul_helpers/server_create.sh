@@ -36,6 +36,7 @@ chown sigul:sigul $server_dir/*.db
 
 # /etc/sigul/server.conf
 sed -i.bak 's/bridge-hostname.*/bridge-hostname: bridge.example.org/' /etc/sigul/server.conf
+sed -i.bak 's/; nss-password is not specified by default/nss-password: redhat/' /etc/sigul/server.conf
 
 #sigul_server_create_db
 sigul_server_add_admin
