@@ -22,8 +22,8 @@ Follow the steps below to instantiate a 3 VM infra with all the services running
   ...
   4. sigul new-key --key-admin=admin testkey1
   5. sigul list-keys
-  6. wget <rpmurl>
-  7. sigul sign-rpm -o signed.rpm testkey1 <rpmfilename>
+  6. wget [rpmurl]
+  7. sigul sign-rpm -o signed.rpm testkey1 [rpmfilename]
 
 
 If list-users prints out a line containing only the word 'admin', the infra has been setup correctly.
