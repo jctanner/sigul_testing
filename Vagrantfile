@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# epel7 doesn't have sigul [yet?]
-usebox = 'puppetlabs/centos-6.6-64-nocm'
+#usebox = 'puppetlabs/centos-6.6-64-nocm' # epel7 doesn't have sigul [yet?]
+usebox = 'fedora/23-cloud-base'
 
 Vagrant.configure(2) do |config|
 
@@ -11,14 +11,6 @@ Vagrant.configure(2) do |config|
 
   # cachier for yum downloads
   #config.cache.scope = :machine
-
-  config.vm.define "client" do |client|
-    client.vm.box = usebox
-    client.vm.host_name = 'client.example.org'
-    client.hostmanager.manage_guest = true
-    client.vm.network "private_network", ip: "10.0.0.100"
-    client.vm.provision "shell", path: "provision_client.sh"
-  end
 
   config.vm.define "bridge" do |bridge|
     bridge.vm.box = usebox
@@ -35,6 +27,15 @@ Vagrant.configure(2) do |config|
     server.vm.network "private_network", ip: "10.0.0.20"
     server.vm.provision "shell", path: "provision_server.sh"
   end
+
+  config.vm.define "client" do |client|
+    client.vm.box = usebox
+    client.vm.host_name = 'client.example.org'
+    client.hostmanager.manage_guest = true
+    client.vm.network "private_network", ip: "10.0.0.100"
+    client.vm.provision "shell", path: "provision_client.sh"
+  end
+
 
   #config.vm.define "server6" do |server6|
   #  server6.vm.box = "puppetlabs/centos-6.6-64-puppet"
