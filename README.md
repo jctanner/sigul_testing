@@ -19,6 +19,12 @@ Follow the steps below to instantiate a 3 VM infra with all the services running
   1. sudo su - 
   2. /vagrant/sigul_helpers/client_create.sh
   3. sigul -v -v list-users
+  ...
+  4. sigul new-key --key-admin=admin testkey1
+  5.  sigul list-keys
+  6. wget http://prd-ctf-jenkins.na.sas.com/jenkins/view/HTS%20Packaging/job/sas-hadoop-tool-groovy-rpm/lastSuccessfulBuild/artifact/sas-hadoop-tool-2016_02_05_10_01_53_6e1d7a5-1.x86_64.rpm
+  7. sigul sign-rpm -o signed.rpm testkey1 sas-hadoop-tool-2016_02_05_10_01_53_6e1d7a5-1.x86_64.rpm
+
 
 If list-users prints out a line containing only the word 'admin', the infra has been setup correctly.
 
