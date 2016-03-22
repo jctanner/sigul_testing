@@ -22,6 +22,24 @@ Follow the steps below to instantiate a 3 VM infra with all the services running
 
 If list-users prints out a line containing only the word 'admin', the infra has been setup correctly.
 
+## Debugging
+
+Systemd takes a long time to kill sigul, so modify the unit file to kill it forcefully ...
+````
+[Unit]
+Description=Sigul vault server
+After=network.target
+Documentation=https://fedorahosted.org/sigul/
+
+[Service]
+ExecStart=/usr/sbin/sigul_server -v -v
+ExecStop=/vagrant/sigul_helpers/killsigul.sh
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+````
+
 ## References
 
 https://github.com/kostyrevaa/ansible-koji-infra

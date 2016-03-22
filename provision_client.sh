@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "root:redhat" | chpasswd
+echo "vagrant:redhat" | chpasswd
+
 setenforce 0
 
 EVANREPO=https://copr.fedorainfracloud.org/coprs/evanosaurus/sigul-the-next-generation/repo/fedora-23/evanosaurus-sigul-the-next-generation-fedora-23.repo
@@ -25,6 +28,15 @@ cat <<EOF > /etc/hosts
 10.0.0.100 	client.example.org client
 10.0.0.10   bridge.example.org bridge
 10.0.0.20   server.example.org server
+EOF
+
+cat <<EOF > /root/.vimrc
+syntax enable
+set expandtab
+set background=dark
+set tabstop=4
+set shiftwidth=4
+set ruler
 EOF
 
 # kill firewall

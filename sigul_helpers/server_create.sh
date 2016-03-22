@@ -8,6 +8,8 @@ rm -rf /usr/share/sigul
 yum -y install sigul
 # /etc/sigul/server.conf
 sed -i.bak 's/bridge-hostname.*/bridge-hostname: bridge.example.org/' /etc/sigul/server.conf
+sed -i.bak 's/sigul_server -v$/sigul_server -v -v/' /usr/lib/systemd/system/sigul_server.service
+
 sigul_server_create_db
 RC=$?
 if [[ $RC != 0 ]] || [ ! -f /var/lib/sigul/server.sqlite ] ; then
