@@ -8,12 +8,12 @@ Follow the steps below to instantiate a 3 VM infra with all the services running
 2. vagrant ssh bridge
   1. sudo su - 
   2. /vagrant/sigul_helpers/bridge_create.sh
-  3. service sigul_bridge start
+  3. systemctl start sigul_bridge
   4. tail -f /var/log/sigul_bridge.log
 3. vagrant ssh server
   1. sudo su - 
   2. /vagrant/sigul_helpers/server_create.sh
-  3. service sigul_server start
+  3. systemctl start sigul_server
   4. tail -f /var/log/sigul_server.log
 3. vagrant ssh client
   1. sudo su - 
