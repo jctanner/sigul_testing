@@ -11,5 +11,7 @@ chown sigul:sigul $bridge_dir/*.db
 certutil -d $bridge_dir -L -n my-ca -a > $bridge_dir/cacert.asc
 pk12util -d $bridge_dir -o $bridge_dir/ca.p12 -n my-ca
 
+sed -i.bak 's/; nss-password is not specified by default/nss-password: redhat/' /etc/sigul/bridge.conf
+
 certutil -K -d $bridge_dir
 certutil -L -d $bridge_dir
