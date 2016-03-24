@@ -4,7 +4,8 @@
 #usebox = 'puppetlabs/centos-6.6-64-nocm' # epel7 doesn't have sigul [yet?]
 #usebox = 'fedora/23-cloud-base'
 #usebox = 'https://download.fedoraproject.org/pub/fedora/linux/releases/23/Cloud/x86_64/Images/Fedora-Cloud-Base-Vagrant-23-20151030.x86_64.vagrant-virtualbox.box'
-usebox = 'box-cutter/fedora23'
+#usebox = 'box-cutter/fedora23'
+usebox = 'box-cutter/centos72'
 
 Vagrant.configure(2) do |config|
 
